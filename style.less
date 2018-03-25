@@ -1,0 +1,96 @@
+@charset "utf-8";
+
+@import "libs/bootstrap/less/bootstrap.less";
+
+@col_main : #00ff70;
+@col_back : #e2ffe3;
+@col_back_pane: #00E65C;
+@col_back_2 : #D8FFD5;
+
+@col_back_hov: #00e65c;
+
+@col_qtype_n : green;
+@col_qtype_u : blue;
+@col_qtype_q : purple;
+@col_qtype_r : orange;
+
+
+
+body {
+    //    font-family:  "Lucida Grande", "segoe UI", "ƒqƒ‰ƒMƒmŠpƒS ProN W3", "Hiragino Kaku Gothic ProN", Meiryo, Verdana, Arial, sans-serif;
+    //    background: @col_back;
+//    min-height: 1000px;
+}
+
+tr.success>td>a {
+    color: white;
+}
+
+.table-nonfluid {
+    width: auto;
+}
+
+.bs-docs-section {
+    margin-top: 4em;
+}
+
+
+.card-box {
+    padding: 10px;
+    overflow: hidden;
+    .card {
+        height: 99px;
+        width : 99px;
+        background: blue;
+        background-size: 100%;
+        background-repeat: no-repeat;
+
+        &.card-min {
+            height: 50px;
+        }
+    }
+}
+
+.modal-fix {
+    margin-left: auto;
+    margin-right: auto;
+    bottom: auto;
+    background: black;
+}
+.modal-scrollable {
+    background: rgba(0,0,0,0.5);
+}
+
+
+
+.card.card-v { background-image: url("./img/vil.png"); }
+.card.card-u { background-image: url("./img/pyt.png"); }
+.card.card-w { background-image: url("./img/wer.png"); }
+.card.card-p { background-image: url("./img/pha.png"); }
+.card.card-i { background-image: url("./img/kyo.png"); }
+
+.card.card-h { background-image: url("./img/hid.png") !important ; }
+
+
+span.vote-num-sp {color : red;};
+
+@media screen and (max-width: 700px){
+    .btn {
+        margin: 5px !important;
+    }
+    p {
+        margin: 5px;
+    }
+    button[class*=btn-check], button[class*=btn-vote]{
+        background: black;
+        color: #fff;
+        border: solid 1px gray;
+    }
+
+    #player-list, div.card-box {
+        padding: 2px 0px !important;
+        >button {
+            margin: 0px !important;
+        }
+    }
+}

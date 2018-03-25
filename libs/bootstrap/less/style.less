@@ -1,0 +1,409 @@
+@charset "utf-8";
+
+@import "mixins.less";
+
+@col_main : #00ff70;
+@col_back : #e2ffe3;
+@col_back_pane: #00E65C;
+@col_back_2 : #D8FFD5;
+
+@col_back_hov: #00e65c;
+
+@col_qtype_n : green;
+@col_qtype_u : blue;
+@col_qtype_q : purple;
+@col_qtype_r : orange;
+
+
+
+body {
+    font-family:  "Lucida Grande", "segoe UI", "ƒqƒ‰ƒMƒmŠpƒS ProN W3", "Hiragino Kaku Gothic ProN", Meiryo, Verdana, Arial, sans-serif;
+    background: @col_back;
+}
+
+a {
+    color: orange;
+    text-decoration: none;
+    &:visited {
+        color: rgb(221, 141, 0);
+    }
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+input[type=submit] {
+    cursor: pointer;
+}
+
+div {
+//    background: rgba(0,0,0,0.13);
+    margin: 1px;
+    padding: 1px;
+}
+
+#wrapper {
+    margin: 0;
+    padding: 0;
+    #header {
+        a { color: white; }
+        .wrap();
+        background: @col_back_pane;
+        margin: 0;
+        padding: 0 10px;
+        div#login-nav {
+            float: right;
+            font-size: 20px;
+        }
+
+        #sitename-div {
+            width: 13%;
+        }
+        #lecture-name-div {
+            width: 60%;
+        }
+        #tweet-button-div {
+            margin-top: 7px;
+        }
+
+        #site-name-div {
+            margin-left: 10px;
+        }
+        .title-span {
+            color: white;
+            font-size: 28px;
+            border-left: double 9px;
+            margin-left: 7px;
+            padding: 15px;
+        }
+    }
+    #footer {
+        background: rgb(0, 190, 15);
+        bottom: 0;
+        margin: 0;
+        padding: 13px;
+        color: white;
+    }
+}
+
+#title {
+    font-size: 30px;
+}
+
+#top-div {
+    width: 100%;
+    border: #00e65c solid;
+    background: #fff;
+    padding: 10px;
+    box-shadow: 0 0 30px #aaa inset;
+    .top-title {
+        font-size: 38px;
+        font-weight: bold;
+        padding-left: 15px;
+        color: rgba(0, 129, 52, 1);
+        text-shadow: 3px 1px 3px #28B139;
+    }
+    .top-detail-div {
+        padding: 12px;
+        padding-bottom: 30px;
+    }
+}
+
+#contents {
+    .wrap();
+    width: 80%;
+    margin: 5px auto;
+    padding: 0px;
+    padding-bottom: 41px;
+
+    // ----------------- index ----------------- //
+    &[name='index']>div#contents-left-div {
+        width: 95%;
+    }
+//    &[name='index']>div#contents-right-div {
+//        float: right;
+//        width: 30%;
+//    }
+
+    // ----------------- bb ----------------- //
+    &[name='bb']>div#contents-left-div {
+        width: 30%;
+    }
+    &[name='bb']>div#contents-center-div {
+        width: 50%;
+    }
+    &[name='bb']>div#contents-right-div {
+        float: right;
+        width: 25%;
+    }
+}
+
+
+#create-form-div {
+    .box();
+    div {
+        padding: 5px;
+    }
+
+    div.input-wrap-div {
+        margin: 14px;
+        border-left: solid green 4px;
+        background: white;
+//        border-radius: 0 6px;
+    }
+    div.bu {
+        border: none;
+    }
+    input[type="submit"] {
+        .submitButton();
+    }
+    box-shadow: -2px -4px 5px 0px @col_back_pane inset;
+
+}
+
+#marker-going { display: hidden; }
+#lecture-list-div {
+    width: 70%;
+    margin: 5px auto;
+    #switch-show-end {
+        width: 100%;
+        height: 2.5em;
+        background: rgb(0, 214, 103);
+        border: none;
+        color: white;
+        cursor: pointer;
+    }
+    #marker-going {
+        display: show;
+        border: solid green;
+        margin: 5px 0;
+        background: rgb(0, 209, 92);
+        padding: 5px;
+        color: white;
+    }
+    .link_list_div {
+        background: white;
+        border: solid @col_back_pane;
+        padding: 0px;
+        overflow: hidden;
+        margin-bottom: 3px;
+        &:hover {
+            background: @col_back_hov;
+        }
+        span {
+            padding: 5px;
+            float: left;
+            white-space: nowrap;
+            overflow: hidden;
+            width: 2em;
+            text-align: center;
+            &.term {
+                background: @col_back_pane;
+                color: white;
+            }
+            &.date{
+                width: 10%;
+            }
+
+            &.name_lecture {
+                width: 60%;
+                border-left: solid;
+                border-right: solid;
+                display: block;
+            }
+//            &.date {
+//                width: 14%;
+//                border-right: solid;
+//            }
+            &.timestamp {
+                font-size: 12px;
+                width: 13%;
+                float: right !important;
+            }
+        }
+    }
+}
+
+#word-list-box-div {
+    .box();
+
+    #word-list-div {
+        margin: 0;
+        padding: 0;
+        min-height: 300px;
+    }
+    .word-list-div {
+        display: block;
+        overflow: hidden;
+        span,input {
+            float: left;
+            &.word {
+                width : 60%;
+                padding-left: 0.5em;
+            }
+            &.point{
+                width : 3em;
+                text-align: center;
+                float: right;
+            }
+        }
+        input[class^=fav] {
+            .favButton();
+            float: right;
+        }
+    }
+}
+
+#word-form-div {
+    .listBottomForm();
+    input[type=text] {
+        width: 100%;
+    }
+}
+
+#comment-list-box-div {
+    .box();
+
+    #commnet-list-div {
+        margin: 0;
+        padding: 0;
+        min-height: 300px;
+    }
+    .comment-list-div {
+        display: block;
+        overflow: hidden;
+        margin: 0;
+        padding: 5px 0;
+        &:nth-child(even) {
+            background: @col_back_2;
+        }
+
+        .comment-header-div {
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+        }
+        .comment-text-div {
+            padding-left: 10px;
+        }
+
+        span,input {
+            float: left;
+            text-align: center;
+            width : 3em;
+            &.index {
+                background: @col_back_pane;
+                color: white;
+            }
+            &.id_user {
+                background: #1df110;
+                padding: 0 1em;
+                border-radius: 0 1em 1em 0;
+                margin-right: 7px;
+                width: 6em;
+            }
+            &.point{
+                width : 3em;
+                float : right;
+            }
+            &.text {
+                width : 60%;
+                white-space: nowrap;
+                text-align: left;
+                overflow: hidden;
+            }
+            &.type {
+                background: green;
+                color: white;
+                &[type=n] {background-color: @col_qtype_n;}
+                &[type=u] {background-color: @col_qtype_u;}
+                &[type=q] {background-color: @col_qtype_q;}
+                &[type=r] {background-color: @col_qtype_r;}
+            }
+        }
+        input[class^=fav] {
+            .favButton();
+            float: right;
+        }
+    }
+}
+
+#comment-form-div {
+    .listBottomForm();
+    >form>textarea {
+        width: 100%;
+        height: 4.5em;
+    }
+
+    div#switchs {
+        padding: 5px 0;
+        >input {
+            width: 22%;
+            border: none;
+            border-bottom: white solid;
+            background: @col_back;
+            margin: 0 1%;
+            cursor: pointer;
+        }
+    }
+}
+
+.listBottomForm() {
+    margin: 0;
+    padding: 10px;
+    background: #99FFA6;
+    input[type="submit"] {
+        .submitButton();
+    }
+}
+
+hr {
+    margin: 6px 0 0 0;
+    border: solid 1px #00E753;
+    box-shadow: 1px 0px 4px #1FFF00;
+}
+
+.favButton() {
+    background: orange;
+    color: white;
+    margin: 0 4px;
+    width: 2.5em;
+    border: none;
+    cursor: pointer;
+}
+
+.submitButton() {
+    background: green;
+    width: 100%;
+    margin: 8px 0 0;
+    padding: 5px;
+    border: none;
+    color: white;
+}
+
+.box() {
+    >div[class*=head] {
+        background: @col_back_pane;
+        color: white;
+        text-shadow: 1px 1px 1px #aaa;
+        margin: 0;
+        text-align: center;
+        padding: 5px 0;
+    }
+    background: white;
+    border: solid @col_back_pane;
+    padding: 0;
+}
+
+.wrap() {
+    display: block;
+    overflow: hidden;
+    >div {
+        float: left;
+    }
+}
+
+
+div#hidden-div {
+    display: none;
+}
